@@ -23,6 +23,6 @@ class PageItem(scrapy.Item):
 
     def __init__(self, *args, **kwargs):
         super(PageItem, self).__init__(*args, **kwargs)
-        self['uuid'] = uuid.uuid1()
+        self['uuid'] = str(uuid.uuid1())
         self['date_crawled'] = strftime("%Y-%m-%dT%H:%M:%SZ", gmtime())
 

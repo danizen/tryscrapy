@@ -16,7 +16,7 @@ NEWSPIDER_MODULE = 'medlineplus.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-USER_AGENT = 'MedlinePlus Monitor-dev (daniel.davis@nih.gov)'
+USER_AGENT = 'MedlinePlus Monitor (daniel.davis@nih.gov)'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
@@ -37,7 +37,7 @@ CONCURRENT_REQUESTS_PER_DOMAIN = 8
 COOKIES_ENABLED = False
 
 # Disable Telnet Console (enabled by default)
-TELNETCONSOLE_ENABLED = True
+TELNETCONSOLE_ENABLED = False
 
 # Override the default request headers:
 #DEFAULT_REQUEST_HEADERS = {
@@ -66,14 +66,14 @@ EXTENSIONS = {
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
+    'medlineplus.pipelines.MedlinePlusPipeline': 300,
     'scrapyelasticsearch.scrapyelasticsearch.ElasticSearchPipeline': 500,
 }
 
 ELASTICSEARCH_SERVERS=['http://localhost:9200']
 ELASTICSEARCH_INDEX='medlineplus'
-ELASTICSEARCH_INDEX_DATE_FORMAT='%Y-%m'
 ELASTICSEARCH_TYPE='page'
-ELASTICSEARCH_UNIQ_KEY='url'
+ELASTICSEARCH_UNIQ_KEY='uuid'
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html
