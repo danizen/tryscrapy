@@ -38,11 +38,11 @@ class NlmnewsSpider(CrawlSpider):
         if tikaurl is not None:
             headers = {
                 'Content-Type': response.headers['Content-Type'],
-                'Accept': 'text/plain',
+                'Accept': 'text/plain; charset=utf-8',
             }
             r = requests.put(tikaurl, headers=headers, data=response.body)
             if r.ok:
-                content = r.content
+                content = r.content.decode('utf-8')
         return content
 
     def parse_item(self, response):

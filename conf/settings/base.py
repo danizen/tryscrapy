@@ -8,6 +8,7 @@
 #     http://doc.scrapy.org/en/latest/topics/settings.html
 #     http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 #     http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
+import logging
 
 BOT_NAME = 'medlineplusmon'
 
@@ -38,6 +39,8 @@ COOKIES_ENABLED = False
 
 # Disable Telnet Console (enabled by default)
 TELNETCONSOLE_ENABLED = False
+
+LOG_LEVEL = logging.INFO
 
 # Override the default request headers:
 #DEFAULT_REQUEST_HEADERS = {
