@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import scrapy
+import uuid
 
 
 class QuotesSpider(scrapy.Spider):
@@ -22,6 +23,7 @@ class QuotesSpider(scrapy.Spider):
     def parse(self, response):
         for q in response.css('div.quote'):
             yield {
+                'uuid':     str(uuid.uuid1()),
                 'text':     q.css('span.text::text').extract_first(),
                 'author':   q.css('small.author::text').extract_first(),
                 'tags':     q.css('div.tags a.tag::text').extract(),
