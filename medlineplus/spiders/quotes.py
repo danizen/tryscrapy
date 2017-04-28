@@ -24,7 +24,7 @@ class QuotesSpider(scrapy.Spider):
         for q in response.css('div.quote'):
             yield {
                 'uuid':     str(uuid.uuid1()),
-                'text':     q.css('span.text::text').extract_first(),
+                'content':  q.css('span.text::text').extract_first(),
                 'author':   q.css('small.author::text').extract_first(),
                 'tags':     q.css('div.tags a.tag::text').extract(),
             }
