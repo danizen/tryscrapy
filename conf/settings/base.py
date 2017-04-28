@@ -75,6 +75,8 @@ ELASTICSEARCH_INDEX='medlineplus'
 ELASTICSEARCH_TYPE='page'
 ELASTICSEARCH_UNIQ_KEY='uuid'
 
+TIKA_SERVER_URL='http://localhost:9998'
+
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html
 #AUTOTHROTTLE_ENABLED = True
